@@ -53,3 +53,8 @@ export const meals: Meal[] = [
     time: 'breakfast',
   },
 ]
+
+// あとで API の GET /meals/:id に置き換える想定
+export function getMealById(id: string) {
+  return meals.find((m) => m.id === id)
+}

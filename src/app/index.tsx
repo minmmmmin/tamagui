@@ -1,3 +1,4 @@
+import { router } from 'expo-router'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 import { Button, H2, ScrollView, Text, XStack, YStack } from 'tamagui'
 
@@ -53,7 +54,7 @@ export default function HomeScreen() {
             最近の記録
           </Text>
           {sortedMeals.map((meal) => (
-            <MealCard key={meal.id} meal={meal} onPress={(m) => console.log('見る:', m.name)} />
+            <MealCard key={meal.id} meal={meal} onPress={(m) => router.push(`/meals/${m.id}`)} />
           ))}
         </YStack>
       </YStack>

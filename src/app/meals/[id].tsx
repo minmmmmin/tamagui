@@ -4,6 +4,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context'
 import { Button, Card, H2, Paragraph, ScrollView, SizableText, XStack, YStack } from 'tamagui'
 
 import { MealCard } from '../../components/MealCard'
+import { MealPhoto } from '../../components/MealPhoto'
 import { mealTimes } from '../../constants/mealTimes'
 import { useMeals } from '../../store/meals'
 import type { Meal } from '../../types/meal'
@@ -46,6 +47,8 @@ function MealDetail({ meal }: { meal: Meal }) {
 
   return (
     <>
+      {meal.photo && <MealPhoto src={meal.photo} rounded="$8" />}
+
       {/* この Card の中は、時間帯のテーマ色(朝=orange など)になる */}
       <Card theme={theme} bg="$color3" rounded="$8" p="$5" gap="$3" items="center">
         <YStack

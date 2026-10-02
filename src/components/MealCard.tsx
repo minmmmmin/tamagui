@@ -1,6 +1,7 @@
 import { Button, Card, Paragraph, SizableText, XStack, YStack } from 'tamagui'
 
 import { mealTimes } from '../constants/mealTimes'
+import { MealPhoto } from './MealPhoto'
 import type { Meal } from '../types/meal'
 import { formatDate } from '../utils/date'
 
@@ -22,6 +23,9 @@ export function MealCard({ meal, onPress }: Props) {
       rounded="$6"
       overflow="hidden"
     >
+      {/* 写真があればカードの上に表示。Card の overflow="hidden" で上の角も丸く切り抜かれる */}
+      {meal.photo && <MealPhoto src={meal.photo} />}
+
       <Card.Header p="$4" gap="$3">
         <XStack items="center" gap="$3">
           {/* 時間帯のアイコン。width と height を同じにして角丸を半分にすると円になる */}

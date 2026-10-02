@@ -24,7 +24,7 @@ export function MealCard({ meal, onPress }: Props) {
     >
       <Card.Header p="$4" gap="$3">
         <XStack items="center" gap="$3">
-          {/* 絵文字のアイコン。width と height を同じにして角丸を大きくすると円になる */}
+          {/* 時間帯のアイコン。width と height を同じにして角丸を半分にすると円になる */}
           <YStack
             width={56}
             height={56}
@@ -33,7 +33,7 @@ export function MealCard({ meal, onPress }: Props) {
             items="center"
             justify="center"
           >
-            <Text fontSize={30}>{meal.emoji}</Text>
+            <mealTime.Icon size={26} color="$color11" />
           </YStack>
 
           <YStack flex={1} gap="$1">

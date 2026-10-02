@@ -16,7 +16,6 @@ export const meals: Meal[] = [
     memo: '卵がちょっと固くなった',
     date: daysAgo(0),
     time: 'lunch',
-    emoji: '🍳',
   },
   {
     id: '2',
@@ -24,7 +23,6 @@ export const meals: Meal[] = [
     memo: 'はちみつをかけすぎた。でもおいしい',
     date: daysAgo(0),
     time: 'breakfast',
-    emoji: '🍞',
   },
   {
     id: '3',
@@ -32,7 +30,6 @@ export const meals: Meal[] = [
     memo: 'きのこたっぷり。レモンを絞ると最高',
     date: daysAgo(0),
     time: 'dinner',
-    emoji: '🐟',
   },
   {
     id: '4',
@@ -40,7 +37,6 @@ export const meals: Meal[] = [
     memo: '隠し味にチョコを入れてみた',
     date: daysAgo(1),
     time: 'dinner',
-    emoji: '🍛',
   },
   {
     id: '5',
@@ -48,7 +44,6 @@ export const meals: Meal[] = [
     memo: '暑かったのでさっぱりと',
     date: daysAgo(1),
     time: 'lunch',
-    emoji: '🍜',
   },
   {
     id: '6',
@@ -56,6 +51,5 @@ export const meals: Meal[] = [
     memo: 'バナナとキウイ。朝は軽めに',
     date: daysAgo(1),
     time: 'breakfast',
-    emoji: '🥝',
   },
 ]

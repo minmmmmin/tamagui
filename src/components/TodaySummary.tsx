@@ -13,7 +13,7 @@ export function TodaySummary({ meals }: Props) {
     <XStack gap="$3">
       {mealTimeOrder.map((time) => {
         const meal = meals.find((m) => m.time === time)
-        const { label, theme } = mealTimes[time]
+        const { label, theme, Icon } = mealTimes[time]
 
         return (
           <Card
@@ -26,9 +26,7 @@ export function TodaySummary({ meals }: Props) {
             gap="$1"
             items="center"
           >
-            <Text fontSize={28} opacity={meal ? 1 : 0.3}>
-              {meal?.emoji ?? '🍽️'}
-            </Text>
+            <Icon size={24} color="$color11" opacity={meal ? 1 : 0.3} />
             <Text fontSize="$2" fontWeight="600" color="$color11">
               {label}
             </Text>

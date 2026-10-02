@@ -7,5 +7,4 @@ export type Meal = {
   memo: string
   date: string // "2026-10-02" 形式
   time: MealTime
-  emoji: string
 }

@@ -1,6 +1,7 @@
+import { Plus } from '@tamagui/lucide-icons-2'
 import { router } from 'expo-router'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
-import { Button, H2, ScrollView, SizableText, XStack, YStack } from 'tamagui'
+import { Button, H2, Image, ScrollView, SizableText, XStack, YStack } from 'tamagui'
 
 import { MealCard } from '../components/MealCard'
 import { TodaySummary } from '../components/TodaySummary'
@@ -31,15 +32,17 @@ export default function HomeScreen() {
       contentContainerStyle={{ pt: insets.top + 16, pb: insets.bottom + 32 }}
     >
       <YStack px="$4" gap="$5" width="100%" maxW={1100} self="center">
-        <XStack items="flex-end" justify="space-between" gap="$3">
+        <XStack items="flex-end" justify="space-between" gap="$2">
+          {/* require() で画像を読み込むと、Web では URL、iOS ではアプリ内の画像として扱われる */}
+          <Image src={require('../../assets/piyo.png')} width={48} height={48} objectFit="contain" />
           <YStack gap="$1" flex={1}>
             <SizableText fontSize="$4" color="$color10">
               {formatDate(today)}
             </SizableText>
             <H2>今日のお料理</H2>
           </YStack>
-          <Button theme="accent" onPress={() => router.push('/meals/new')}>
-            ＋ 記録する
+          <Button theme="accent" size="$3" icon={Plus} onPress={() => router.push('/meals/new')}>
+            記録する
           </Button>
         </XStack>
 

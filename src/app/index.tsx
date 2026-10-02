@@ -1,23 +1,14 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { Button, H1, Text, YStack } from 'tamagui'
 
 // "/" に対応する画面。Next.js の app/page.tsx に相当する。
-// まだ Tamagui は使わず、素の React Native の部品(View / Text)と StyleSheet で書いている。
 export default function HomeScreen() {
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>今日のお料理</Text>
-    </View>
+    <YStack flex={1} items="center" justify="center" gap="$4" p="$4" bg="$background">
+      <H1>今日のお料理</H1>
+      <Text color="$color10">まだ記録がありません</Text>
+      <Button theme="accent" onPress={() => console.log('pressed')}>
+        記録する
+      </Button>
+    </YStack>
   )
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  title: {
-    fontSize: 32,
-    fontWeight: 'bold',
-  },
-})

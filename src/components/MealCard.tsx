@@ -22,6 +22,8 @@ export function MealCard({ meal, onPress }: Props) {
       borderColor="$color5"
       rounded="$6"
       overflow="hidden"
+      // 横に並んだとき、同じ行のカードの高さを揃える（「見る」ボタンは Card.Footer で下端に寄る）
+      flexGrow={1}
     >
       {/* 写真があればカードの上に表示。Card の overflow="hidden" で上の角も丸く切り抜かれる */}
       {meal.photo && <MealPhoto src={meal.photo} aspectRatio={16 / 9} />}

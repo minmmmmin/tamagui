@@ -55,13 +55,30 @@ export default function HomeScreen() {
           <TodaySummary meals={todayMeals} />
         </YStack>
 
-        <YStack gap="$3">
+        <YStack gap="$2">
           <SizableText fontSize="$5" fontWeight="700">
             最近の記録
           </SizableText>
-          {sortedMeals.map((meal) => (
-            <MealCard key={meal.id} meal={meal} onPress={(m) => router.push(`/meals/${m.id}`)} />
-          ))}
+          {/*
+            画面幅に応じて列の数を変える（Step 5）。
+            React Native には CSS Grid が無いので、横に並べて折り返し(flexWrap)、
+            1枚あたりの幅を media props で切り替える：
+              スマホ … 100%（1列） / $md(768px〜) … 50%（2列） / $lg(1024px〜) … 33%（3列）
+            カードの間隔は「外側に -6、各カードに 6 の余白」で作る（% の幅と gap を混ぜると端数で崩れやすい）
+          */}
+          <XStack flexWrap="wrap" mx={-6}>
+            {sortedMeals.map((meal) => (
+              <YStack
+                key={meal.id}
+                width="100%"
+                $md={{ width: '50%' }}
+                $lg={{ width: '33.333%' }}
+                p={6}
+              >
+                <MealCard meal={meal} onPress={(m) => router.push(`/meals/${m.id}`)} />
+              </YStack>
+            ))}
+          </XStack>
         </YStack>
       </YStack>
     </ScrollView>

@@ -1,6 +1,6 @@
 import { router } from 'expo-router'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
-import { Button, H2, ScrollView, Text, XStack, YStack } from 'tamagui'
+import { Button, H2, ScrollView, SizableText, XStack, YStack } from 'tamagui'
 
 import { MealCard } from '../components/MealCard'
 import { TodaySummary } from '../components/TodaySummary'
@@ -32,9 +32,9 @@ export default function HomeScreen() {
       <YStack px="$4" gap="$5" width="100%" maxW={1100} self="center">
         <XStack items="flex-end" justify="space-between" gap="$3">
           <YStack gap="$1" flex={1}>
-            <Text fontSize="$4" color="$color10">
+            <SizableText fontSize="$4" color="$color10">
               {formatDate(today)}
-            </Text>
+            </SizableText>
             <H2>今日のお料理</H2>
           </YStack>
           <Button theme="accent" onPress={() => console.log('記録する')}>
@@ -43,16 +43,16 @@ export default function HomeScreen() {
         </XStack>
 
         <YStack gap="$2">
-          <Text fontSize="$5" fontWeight="700">
+          <SizableText fontSize="$5" fontWeight="700">
             今日のまとめ
-          </Text>
+          </SizableText>
           <TodaySummary meals={todayMeals} />
         </YStack>
 
         <YStack gap="$3">
-          <Text fontSize="$5" fontWeight="700">
+          <SizableText fontSize="$5" fontWeight="700">
             最近の記録
-          </Text>
+          </SizableText>
           {sortedMeals.map((meal) => (
             <MealCard key={meal.id} meal={meal} onPress={(m) => router.push(`/meals/${m.id}`)} />
           ))}

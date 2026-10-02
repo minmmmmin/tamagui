@@ -1,4 +1,4 @@
-import { Button, Card, Paragraph, Text, XStack, YStack } from 'tamagui'
+import { Button, Card, Paragraph, SizableText, XStack, YStack } from 'tamagui'
 
 import { mealTimes } from '../constants/mealTimes'
 import type { Meal } from '../types/meal'
@@ -37,18 +37,18 @@ export function MealCard({ meal, onPress }: Props) {
           </YStack>
 
           <YStack flex={1} gap="$1">
-            <Text fontSize="$7" fontWeight="700" color="$color12">
+            <SizableText fontSize="$7" fontWeight="700" color="$color12">
               {meal.name}
-            </Text>
+            </SizableText>
             <XStack items="center" gap="$2">
               <YStack bg="$color5" px="$2" py={2} rounded="$10">
-                <Text fontSize="$2" fontWeight="600" color="$color11">
+                <SizableText fontSize="$2" fontWeight="600" color="$color11">
                   {mealTime.label}
-                </Text>
+                </SizableText>
               </YStack>
-              <Text fontSize="$3" color="$color10">
+              <SizableText fontSize="$3" color="$color10">
                 {formatDate(meal.date)}
-              </Text>
+              </SizableText>
             </XStack>
           </YStack>
         </XStack>

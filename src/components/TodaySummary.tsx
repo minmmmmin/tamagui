@@ -1,4 +1,4 @@
-import { Card, Text, XStack, YStack } from 'tamagui'
+import { Card, SizableText, XStack, YStack } from 'tamagui'
 
 import { mealTimeOrder, mealTimes } from '../constants/mealTimes'
 import type { Meal } from '../types/meal'
@@ -27,12 +27,12 @@ export function TodaySummary({ meals }: Props) {
             items="center"
           >
             <Icon size={24} color="$color11" opacity={meal ? 1 : 0.3} />
-            <Text fontSize="$2" fontWeight="600" color="$color11">
+            <SizableText fontSize="$2" fontWeight="600" color="$color11">
               {label}
-            </Text>
-            <Text fontSize="$3" color="$color12" numberOfLines={1}>
+            </SizableText>
+            <SizableText fontSize="$3" color="$color12" numberOfLines={1}>
               {meal?.name ?? 'まだ'}
-            </Text>
+            </SizableText>
           </Card>
         )
       })}

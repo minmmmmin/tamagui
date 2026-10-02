@@ -1,21 +1,8 @@
 import { Button, Card, Paragraph, Text, XStack, YStack } from 'tamagui'
 
-import type { Meal, MealTime } from '../types/meal'
-
-// 時間帯ごとの表示名と Tamagui テーマ。
-// theme を変えるだけで、カード内の $color4 や $color11 が全部その色味に切り替わる。
-const mealTimes = {
-  breakfast: { label: '朝ごはん', theme: 'orange' },
-  lunch: { label: 'お昼ごはん', theme: 'green' },
-  dinner: { label: '晩ごはん', theme: 'purple' },
-} as const satisfies Record<MealTime, { label: string; theme: string }>
-
-// "2026-10-02" → "10月2日(金)"
-function formatDate(date: string) {
-  const d = new Date(`${date}T00:00:00`)
-  const weekday = '日月火水木金土'[d.getDay()]
-  return `${d.getMonth() + 1}月${d.getDate()}日(${weekday})`
-}
+import { mealTimes } from '../constants/mealTimes'
+import type { Meal } from '../types/meal'
+import { formatDate } from '../utils/date'
 
 type Props = {
   meal: Meal

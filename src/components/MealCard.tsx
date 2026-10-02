@@ -24,7 +24,7 @@ export function MealCard({ meal, onPress }: Props) {
       overflow="hidden"
     >
       {/* 写真があればカードの上に表示。Card の overflow="hidden" で上の角も丸く切り抜かれる */}
-      {meal.photo && <MealPhoto src={meal.photo} />}
+      {meal.photo && <MealPhoto src={meal.photo} aspectRatio={16 / 9} />}
 
       <Card.Header p="$4" gap="$3">
         <XStack items="center" gap="$3">

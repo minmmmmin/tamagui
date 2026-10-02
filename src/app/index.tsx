@@ -5,13 +5,14 @@ import { Button, H2, ScrollView, SizableText, XStack, YStack } from 'tamagui'
 import { MealCard } from '../components/MealCard'
 import { TodaySummary } from '../components/TodaySummary'
 import { mealTimeOrder } from '../constants/mealTimes'
-import { meals } from '../data/meals'
+import { useMeals } from '../store/meals'
 import { formatDate, toDateString } from '../utils/date'
 
 // "/" に対応する画面。Next.js の app/page.tsx に相当する。
 export default function HomeScreen() {
   // iPhone のノッチやホームバーに中身が隠れないための余白。Web では 0 になる。
   const insets = useSafeAreaInsets()
+  const { meals } = useMeals()
 
   const today = toDateString(new Date())
   const todayMeals = meals.filter((m) => m.date === today)
@@ -37,7 +38,7 @@ export default function HomeScreen() {
             </SizableText>
             <H2>今日のお料理</H2>
           </YStack>
-          <Button theme="accent" onPress={() => console.log('記録する')}>
+          <Button theme="accent" onPress={() => router.push('/meals/new')}>
             ＋ 記録する
           </Button>
         </XStack>

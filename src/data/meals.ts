@@ -1,15 +1,9 @@
 import type { Meal } from '../types/meal'
-import { toDateString } from '../utils/date'
+import { daysAgo } from '../utils/date'
 
-// ダミーデータ。あとで DB / API に置き換える。
+// ダミーデータ（アプリ起動時の初期値）。あとで DB / API に置き換える。
 // いつ開いても「今日」の記録があるように、日付は今日からの相対で作っている。
-function daysAgo(n: number) {
-  const d = new Date()
-  d.setDate(d.getDate() - n)
-  return toDateString(d)
-}
-
-export const meals: Meal[] = [
+export const dummyMeals: Meal[] = [
   {
     id: '1',
     name: 'オムライス',
@@ -54,7 +48,3 @@ export const meals: Meal[] = [
   },
 ]
 
-// あとで API の GET /meals/:id に置き換える想定
-export function getMealById(id: string) {
-  return meals.find((m) => m.id === id)
-}

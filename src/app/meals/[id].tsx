@@ -5,7 +5,7 @@ import { Button, Card, H2, Paragraph, ScrollView, SizableText, XStack, YStack } 
 
 import { MealCard } from '../../components/MealCard'
 import { mealTimes } from '../../constants/mealTimes'
-import { getMealById, meals } from '../../data/meals'
+import { useMeals } from '../../store/meals'
 import type { Meal } from '../../types/meal'
 import { formatDate } from '../../utils/date'
 
@@ -14,7 +14,8 @@ import { formatDate } from '../../utils/date'
 export default function MealDetailScreen() {
   const { id } = useLocalSearchParams<{ id: string }>()
   const insets = useSafeAreaInsets()
-  const meal = getMealById(id)
+  const { meals } = useMeals()
+  const meal = meals.find((m) => m.id === id)
 
   // Web で URL を直接開いた場合は戻る履歴がないので、一覧へ移動する
   const goBack = () => (router.canGoBack() ? router.back() : router.replace('/'))
@@ -39,6 +40,7 @@ export default function MealDetailScreen() {
 }
 
 function MealDetail({ meal }: { meal: Meal }) {
+  const { meals } = useMeals()
   const { label, theme, Icon } = mealTimes[meal.time]
   const sameDayMeals = meals.filter((m) => m.date === meal.date && m.id !== meal.id)
 

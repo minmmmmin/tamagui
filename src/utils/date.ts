@@ -5,6 +5,13 @@ export function toDateString(d: Date) {
   return `${d.getFullYear()}-${mm}-${dd}`
 }
 
+// 今日から n 日前の日付 → "2026-10-01"
+export function daysAgo(n: number) {
+  const d = new Date()
+  d.setDate(d.getDate() - n)
+  return toDateString(d)
+}
+
 // "2026-10-02" → "10月2日(金)"
 export function formatDate(date: string) {
   const d = new Date(`${date}T00:00:00`)
